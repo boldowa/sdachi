@@ -1,0 +1,44 @@
+//----------------------------------------------------------
+//  sdachi.rc
+//----------------------------------------------------------
+
+#include "version.h"
+#include <windows.h>
+
+/**
+ * StringVersionInfo
+ */
+#define ResV(i) Res(i)
+#define _Res(s,term)	s # term
+#define Res(s)		_Res(#s,\0)
+
+SDACHI	ICON	DISCARDABLE	"sdachi.ico"
+
+VS_VERSION_INFO VERSIONINFO
+	FILEVERSION	ResVersion
+	PRODUCTVERSION	ResVersion
+	FILEOS		VOS__WINDOWS32
+	FILETYPE	VFT_APP
+	FILESUBTYPE	VFT2_UNKNOWN
+	FILEFLAGS	0x0L
+	FILEFLAGSMASK	VS_FFI_FILEFLAGSMASK
+{
+	BLOCK "StringFileInfo"
+	{
+		BLOCK "041104b0"
+		{
+			VALUE "CompanyName",		"boldowa's nest\0"
+			VALUE "FileDescription",	"SNES routine oriented disassembler\0"
+			VALUE "FileVersion",		ResV(FileVersion)
+			VALUE "InternalVersion",	"nil\0"
+			VALUE "OriginalFileName",	"sdachi.exe\0"
+			VALUE "LegalCopyright",		"boldowa / icon : Irasutoya\0"
+			VALUE "ProductName",		ResV(_AppName)
+			VALUE "ProductVersion",		ResV(AppVersion)
+		}
+	}
+	BLOCK "VarFileInfo"
+	{
+		VALUE "Translation", 0x0411, 1200
+	}
+}

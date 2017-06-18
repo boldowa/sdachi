@@ -1,0 +1,9 @@
+"-------------------
+" Set path
+"-------------------
+let &path.=",".$CPPUTEST_HOME."/include"
+let &path.=",".getcwd()."/include"
+let includes = split(glob("include/*"), "\n")
+for p in includes
+	let &path.=",".getcwd()."/".p
+endfor
